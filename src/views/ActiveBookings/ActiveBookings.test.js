@@ -1,14 +1,12 @@
 import * as React from 'react'
 import Adapter from 'enzyme-adapter-react-16'
 import { shallow, configure } from 'enzyme'
-import { Login, YourBubble, FindSitters } from './views'
-
-import App from './App'
+import ActiveBookings from './ActiveBookings'
 
 configure({ adapter: new Adapter() })
 
-describe('App ', () => {
+describe('ActiveBookings Component', () => {
   it('renders without crashing', () => {
-    shallow(<App />)
+    shallow(<ActiveBookings />)
   })
 })

@@ -1,23 +1,28 @@
-import React from 'react';
-import { Result, Button } from 'antd';
-import './App.less';
+import React, { useState } from 'react'
+import { Branding } from './comps/ui'
+import { Login, YourBubble, FindSitters } from './views'
+import './App.less'
+import { useData } from './hooks'
 
-function App() {
+const App = () => {
+  const [auth, setAuth] = useState({ token: null })
+  const [{ user, sitters, bookings }] = useData(auth.token)
+  const [activeTab, setActiveTab] = useState(1)
+
+  const logout = () => {
+    setAuth({ token: null })
+  }
   return (
-    <div >
-      <Result
-        status="success"
-        title="Welcome to React"
-        subTitle="This boilerplate is created using create-react-app with typescript and antd configured."
-        extra={[
-          <Button type="link" target="_blank" href="https://reactjs.org">Learn React</Button>
-        ]}
-      />
-
-
-
-    </div>
-  );
+    <Branding {...{ auth, setActiveTab, logout }}>
+      {!auth.token && <Login {...{ setAuth }} />}
+      {auth.token && (
+        <>
+          {activeTab === 1 && <YourBubble {...{ user, bookings }} />}
+          {activeTab === 2 && <FindSitters {...{ sitters }} />}
+        </>
+      )}
+    </Branding>
+  )
 }
 
-export default App;
+export default App
