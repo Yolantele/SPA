@@ -1,6 +1,7 @@
 ## SPA React Bubble App
 
 This is a mobile-first Web App, but please see my wip wireframes for [Native App in Figma](https://www.figma.com/file/rzoqrRow3dL2NpcRtpZmpz/%F0%9F%93%B2Bubble-Wireframes-for-web-portal-mobile-UI?node-id=35%3A4472) that were created to fully appreciate the task at hand before coding began.
+(You can see live clickable prototype [here](https://www.figma.com/proto/rzoqrRow3dL2NpcRtpZmpz/%F0%9F%93%B2Bubble-Wireframes-for-web-portal-mobile-UI?node-id=35%3A4061&scaling=min-zoom))
 
 ### How to start
 
