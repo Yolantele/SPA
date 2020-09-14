@@ -3,6 +3,8 @@ import { Layout, Button } from 'antd'
 import SideMenu from './SideMenu'
 import { Logo } from '../../images'
 import { style as s } from './style'
+import ErrorBoundary from './ErrorBoundary'
+
 const { Header, Footer, Content } = Layout
 
 interface CompProps {
@@ -31,7 +33,9 @@ const Branding: React.FC<CompProps> = ({ children, auth, setActiveTab, logout })
       </Header>
       <Layout>
         {auth.token && <SideMenu {...{ setActiveTab }} />}
-        <Content style={{ minHeight: '100vh' }}>{children}</Content>
+        <Content style={{ minHeight: '100vh' }}>
+          <ErrorBoundary>{children}</ErrorBoundary>
+        </Content>
       </Layout>
       <Footer style={{ height: 200 }} />
     </Layout>
